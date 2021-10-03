@@ -1,10 +1,3 @@
-/*
- * toggleProjects.c
- *
- * Created: 9/29/2021 3:20:55 PM
- * Author : sfran
- */ 
-
 /***********************************************************************
  * 
  * Blink a LED and use function from the delay library.
@@ -59,22 +52,12 @@ int main(void)
     // Infinite loop
     while (1)
     {
-        _delay_ms(SHORT_DELAY*4);
-		
-		// Turn LED on for 1 second (dot)
+        // Pause several milliseconds
+        _delay_ms(SHORT_DELAY);
+
+        // Invert LED in Data Register
+        // PORTB = PORTB xor 0010 0000
         PORTB = PORTB ^ (1<<LED_GREEN);
-        _delay_ms(SHORT_DELAY*4);
-		
-		// Turn LED off for 1 second (space)
-		PORTB = PORTB & ~(1<<LED_GREEN);
-        _delay_ms(SHORT_DELAY*4);
-		
-		// Turn LED on for 3 seconds (dash)
-        PORTB = PORTB ^ (1<<LED_GREEN);
-        _delay_ms(SHORT_DELAY*4*3);
-		
-		// Turn LED off
-		PORTB = PORTB & ~(1<<LED_GREEN);
     }
 
     // Will never reach this
