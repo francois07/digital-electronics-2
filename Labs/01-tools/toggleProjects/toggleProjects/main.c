@@ -19,11 +19,12 @@
  * several arguments. Do NOT put a semicolon character at the end of 
  * directives. This is a common mistake.
  */
+#define __AVR_ATmega328P__
 #define LED_GREEN   PB5 // AVR pin where green LED is connected
 #define SHORT_DELAY 250 // Delay in milliseconds
 #ifndef F_CPU           // Preprocessor directive allows for conditional
                         // compilation. The #ifndef means "if not defined".
-# define F_CPU 16000000 // CPU frequency in Hz required for delay
+#define F_CPU 16000000 // CPU frequency in Hz required for delay
 #endif                  // The #ifndef directive must be closed by #endif
 
 /* Includes ----------------------------------------------------------*/
