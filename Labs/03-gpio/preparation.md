@@ -2,14 +2,14 @@
 
 1. Fill in the following table and enter the number of bits and numeric range for the selected data types defined by C.
 
-| **Data type** | **Number of bits** |       **Range**        | **Description**                 |
-| :-----------: | :----------------: | :--------------------: | :------------------------------ |
-|   `uint8_t`   |         8          |     0, 1, ..., 255     | Unsigned 8-bit integer          |
-|   `int8_t`    |         8          |     -128, ..., 127     | Signed 8-bit integer            |
-|  `uint16_t`   |         16         |     0, ..., 2^16-1     | Unsigned 16-bit integer         |
-|   `int16_t`   |         16         |   -2^15, ..., 2^15-1   | Signed 16-bit integer           |
-|    `float`    |         32         | -3.4e+38, ..., 3.4e+38 | Single-precision floating-point |
-|    `void`     |         0          |          None          | No value                        |
+| **Data type** | **Number of bits** |        **Range**         | **Description**                 |
+| :-----------: | :----------------: | :----------------------: | :------------------------------ |
+|   `uint8_t`   |         8          |      0, 1, ..., 255      | Unsigned 8-bit integer          |
+|   `int8_t`    |         8          |      -128, ..., 127      | Signed 8-bit integer            |
+|  `uint16_t`   |         16         |      0, ..., 2^16-1      | Unsigned 16-bit integer         |
+|   `int16_t`   |         16         |   -2e+15, ..., 2e+15-1   | Signed 16-bit integer           |
+|    `float`    |         32         | -3.4e+38, ..., 3.4e+38-1 | Single-precision floating-point |
+|    `void`     |         0          |           None           | No value                        |
 
 2. Any function in C contains a declaration (function prototype), a definition (block of code, body of the function); each declared function can be executed (called). Study [this article](https://www.programiz.com/c-programming/c-user-defined-functions) and complete the missing sections in the following user defined function declaration, definition, and call.
 
