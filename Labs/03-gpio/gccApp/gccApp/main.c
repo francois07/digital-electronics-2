@@ -42,7 +42,7 @@ int main(void)
     GPIO_write_low(&PORTB, LED_RED);
 
     // Configure Push button at port D and enable internal pull-up resistor
-	GPIO_config_input_pullup(&PORTD, BTN);
+	GPIO_config_input_pullup(&DDRB, BTN);
 
 
     // Infinite loop
