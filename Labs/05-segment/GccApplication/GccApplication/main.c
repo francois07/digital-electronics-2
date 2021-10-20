@@ -15,8 +15,7 @@
 #include "timer.h"          // Timer library for AVR-GCC
 #include "segment.h"        // Seven-segment display library for AVR-GCC
 
-static uint8_t dec0 = 0;
-static uint8_t dec1 = 0;
+static uint8_t decimals[] = {0, 0, 0, 0};
 
 /* Function definitions ----------------------------------------------*/
 /**********************************************************************
@@ -62,24 +61,29 @@ int main(void)
  **********************************************************************/
 ISR(TIMER0_OVF_vect){
 	static uint8_t pos = 0;
-	static uint8_t *pos_table[] = {&dec0, &dec1};
 	
-	SEG_update_shift_regs(*pos_table[pos], pos);
+	SEG_update_shift_regs(decimals[pos], pos);
 	pos++;
 	
-	if(pos >= (sizeof(pos_table)/sizeof(uint8_t*))) pos=0;
+	if(pos >= 4) pos=0;
 }
 
 ISR(TIMER1_OVF_vect)
 {
     // WRITE YOUR CODE HERE
-	if(dec0 >= 9){
-		dec0 = 0;
-		dec1++;
+	uint8_t i;
+	
+	if(decimals[0] >= 9){
+		decimals[0] = 0;
+		decimals[1] += 1;
 	} else {
-		dec0++;
+		decimals[0] += 1;
 	}
-	if(dec1 >= 9){
-		dec0 = dec1 = 0;
+	
+	for(i=1; i<4; i++){
+		if((decimals[i] > 9)){
+			decimals[i] = 0;
+			if(i<3) decimals[i+1] += 1;
+		}
 	}
 }
